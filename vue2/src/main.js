@@ -1,0 +1,16 @@
+import Vue from 'vue';
+import App from './App.vue';
+
+import router from '@/code/router';
+import store from '@/store/store';
+import Icon from '@/components/Icon.vue';
+
+Vue.component('Icon', Icon);
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+}).$mount('#app');

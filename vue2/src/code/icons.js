@@ -1,2 +1,3 @@
-// find them here https://fontawesome.com/search?s=solid
-export { faHatWizard, faCancel, faList } from '@fortawesome/free-solid-svg-icons';
+// find them here 
+// https://fontawesome.com/search?s=solid
+export { faHatWizard, faCancel, faList, faGamepad } from '@fortawesome/free-solid-svg-icons';

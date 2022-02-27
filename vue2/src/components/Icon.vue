@@ -1,6 +1,6 @@
 <template>
   <FontAwesomeIcon
-    :class="{ invalid: !completeIcon }"
+    :class="{ invalid: !completeIcon, hidden: !icon }"
     class="icon"
     :icon="completeIcon || ['fas', 'cancel']"
   />
@@ -31,10 +31,16 @@ export default {
   },
   computed: {
     completeIcon() {
+      if (!this.icon) {
+        return;
+      }
+
       const icon = LOOKUP[this.icon];
 
       if (!icon) {
-        console.error(`[Icon] Cannot find icon '${this.icon}'. Has it been imported? See /code/icons.js`);
+        console.error(
+          `[Icon] Cannot find icon '${this.icon}'. Has it been imported? See /code/icons.js`,
+        );
         return;
       }
 
@@ -45,7 +51,17 @@ export default {
 </script>
 
 <style>
+svg.icon.svg-inline--fa {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .icon.invalid {
   color: red;
+}
+
+.icon.hidden {
+  opacity: 0;
 }
 </style>

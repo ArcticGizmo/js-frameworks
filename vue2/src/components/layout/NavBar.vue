@@ -8,15 +8,6 @@
         <Icon :icon="route.icon" />
       </div>
     </router-link>
-
-    <!-- <div
-      v-tooltip="{ content: item.name, placement: 'right', delay: { show: 0, hide: 0 } }"
-      class="nav-item"
-      v-for="item in routes"
-      :key="item.path"
-    >
-      <Icon :icon="item.icon" />
-    </div> -->
   </div>
 </template>
 

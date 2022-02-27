@@ -30,4 +30,12 @@ export default {
 body {
   margin: 0;
 }
+
+.layout .nav-bar {
+  position: relative;
+}
+
+.layout > * {
+  border: 1px solid blue;
+}
 </style>

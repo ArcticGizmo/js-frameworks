@@ -1,7 +1,7 @@
 <template>
   <FontAwesomeIcon
-    :class="{ invalid: !completeIcon, hidden: !icon }"
     class="icon"
+    :class="{ invalid: !completeIcon, hidden: !icon }"
     :icon="completeIcon || ['fas', 'cancel']"
   />
 </template>

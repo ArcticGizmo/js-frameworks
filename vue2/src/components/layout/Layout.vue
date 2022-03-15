@@ -51,7 +51,7 @@ body {
 }
 
 .layout .page-wrapper {
-  margin-left: 5rem;
+  margin-left: 4rem;
 }
 
 .layout .page {

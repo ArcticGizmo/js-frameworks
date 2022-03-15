@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import TodoPage from '@/components/pages/TodoPage.vue';
+import TodoPage from '@/components/pages/todo/TodoPage.vue';
 import TicTacToePage from '@/components/pages/TicTacToePage.vue';
 
 Vue.use(VueRouter);

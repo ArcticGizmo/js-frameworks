@@ -30,4 +30,18 @@ export default {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+button {
+  cursor: pointer;
+  min-width: 4rem;
+  height: 1.5rem;
+  background-color: #3fb27f;
+  box-shadow: none;
+  border: none;
+  box-shadow: 1px 1px 2px grey;
+}
+
+button:hover {
+  opacity: 0.9;
+}
 </style>

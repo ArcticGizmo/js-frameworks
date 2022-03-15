@@ -1,7 +1,7 @@
 <template>
   <div class="todo-page">
     <div class="add">
-      <button @click="onAdd()">Add</button>
+      <button @click="onAdd()">Create New</button>
     </div>
     <div class="cards">
       <TodoCard
@@ -10,6 +10,8 @@
         :key="index"
         v-bind="entry"
         @toggle="onToggleComplete(entry)"
+        @textChange="onTextChange(entry, $event)"
+        @delete="onDelete(index)"
       />
     </div>
   </div>
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     onAdd() {
-      const entry = { title: 'Some task to do', created: new Date(), completed: null };
+      const entry = { title: '', created: new Date(), completed: null };
       this.entries.push(entry);
     },
     onToggleComplete(entry) {
@@ -40,6 +42,14 @@ export default {
         entry.completed = new Date();
       }
 
+      this.entries = this.entries.slice();
+    },
+    onTextChange(entry, title) {
+      entry.title = title;
+      this.entries = this.entries.slice();
+    },
+    onDelete(index) {
+      this.entries.splice(index, 1);
       this.entries = this.entries.slice();
     },
   },

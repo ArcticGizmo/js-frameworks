@@ -7,4 +7,5 @@ export {
   faGamepad,
   faCheckCircle,
   faCheck,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons';

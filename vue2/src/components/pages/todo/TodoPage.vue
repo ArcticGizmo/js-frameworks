@@ -5,19 +5,21 @@
     </div>
     <div class="cards">
       <TodoCard
-        v-for="(entry, index) in entries"
+        v-for="(entry, index) in todos"
         :class="{ dim: !!entry.completed }"
         :key="index"
         v-bind="entry"
-        @toggle="onToggleComplete(entry)"
-        @textChange="onTextChange(entry, $event)"
+        @toggle="onToggleComplete(index)"
+        @textChange="onTextChange(index, $event)"
         @delete="onDelete(index)"
       />
     </div>
+    <pre>{{ todos }}</pre>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import TodoCard from './TodoCard.vue';
 
 export default {
@@ -25,32 +27,47 @@ export default {
   components: {
     TodoCard,
   },
-  data: () => {
-    return {
-      entries: [{ title: 'Example item', created: new Date(), completed: null }],
-    };
+  computed: {
+    ...mapState({
+      todos: state => state.todos,
+    }),
   },
   methods: {
-    onAdd() {
-      const entry = { title: '', created: new Date(), completed: null };
-      this.entries.push(entry);
+    setTodos(todos) {
+      this.$store.commit('setTodos', todos);
     },
-    onToggleComplete(entry) {
-      if (entry.completed) {
-        entry.completed = null;
+    onAdd() {
+      const entries = this.todos.slice();
+      const entry = { title: '', created: new Date(), completed: null };
+      entries.push(entry);
+      this.setTodos(entries);
+    },
+    onToggleComplete(index) {
+      const entries = this.todos.slice();
+      const newEntry = { ...entries[index] };
+
+      if (newEntry.completed) {
+        newEntry.completed = null;
       } else {
-        entry.completed = new Date();
+        newEntry.completed = new Date();
       }
 
-      this.entries = this.entries.slice();
+      entries[index] = newEntry;
+
+      this.setTodos(entries);
     },
-    onTextChange(entry, title) {
-      entry.title = title;
-      this.entries = this.entries.slice();
+    onTextChange(index, title) {
+      const entries = this.todos.slice();
+      const newEntry = { ...entries[index], title };
+
+      entries[index] = newEntry;
+
+      this.setTodos(entries);
     },
     onDelete(index) {
-      this.entries.splice(index, 1);
-      this.entries = this.entries.slice();
+      const entries = this.todos.slice();
+      entries.splice(index, 1);
+      this.setTodos(entries);
     },
   },
 };

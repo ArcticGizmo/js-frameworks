@@ -1,7 +1,7 @@
 <template>
   <div class="todo-card">
     <CompleteIcon :value="!!completed" @input="onToggleCompleted" />
-    <input class="title" :value="title" @change="onTextChange" />
+    <input class="title" :value="title" :disabled="!!completed" @change="onTextChange" />
     <Icon class="delete" icon="xmark" @click.native="onDelete()" />
   </div>
 </template>

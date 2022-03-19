@@ -1,7 +1,8 @@
 <template>
   <div class="tic-tac-toe-page">
-    <div class="actions" @click="onReset()">
-      <button>Reset</button>
+    <div class="actions">
+      <button @click="onReset()">Reset</button>
+      <button v-if="history.length > 1" @click="onUndo()">Undo</button>
     </div>
     <div class="game-wrapper">
       <div class="game-area">
@@ -15,10 +16,6 @@
           <div class="label">Player {{ winningPlayer }} Wins!</div>
         </div>
       </div>
-    </div>
-
-    <div class="history">
-      <pre>{{ history }}</pre>
     </div>
   </div>
 </template>
@@ -53,6 +50,11 @@ export default {
     onReset() {
       this.history = [initBoard()];
     },
+    onUndo() {
+      const history = this.history.slice();
+      history.splice(-1, 1);
+      this.history = history;
+    },
     onChange(event) {
       if (this.winningPlayer) {
         return;
@@ -64,6 +66,10 @@ export default {
 </script>
 
 <style>
+.tic-tac-toe-page .actions > * {
+  margin-right: 0.25rem;
+}
+
 .tic-tac-toe-page .game-wrapper {
   display: flex;
   justify-content: center;

@@ -14,7 +14,6 @@
         @delete="onDelete(index)"
       />
     </div>
-    <pre>{{ todos }}</pre>
   </div>
 </template>
 

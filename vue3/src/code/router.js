@@ -14,17 +14,17 @@ const routes = [
   {
     path: '/todo',
     name: 'Todo',
+    component: TodoPage,
     meta: {
       icon: 'list',
-      component: TodoPage,
     },
   },
   {
     path: '/tic_tac_toe',
     name: 'Tic Tac Toe',
+    component: TicTacToePage,
     meta: {
       icon: 'gamepad',
-      component: TicTacToePage,
     },
   },
 ];

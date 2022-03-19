@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     routes() {
-      return this.$router.options.routes;
+      return this.$router.options.routes.filter(r => !r.hide);
     },
   },
 };

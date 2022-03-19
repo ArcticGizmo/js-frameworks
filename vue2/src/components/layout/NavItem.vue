@@ -43,6 +43,7 @@ export default {
   transition: all 0.3s;
 }
 
+.router-link-active .nav-item .icon,
 .nav-item:hover .icon {
   color: white;
   border-radius: 0.75rem;

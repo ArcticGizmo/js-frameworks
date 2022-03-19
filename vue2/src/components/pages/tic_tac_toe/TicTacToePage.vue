@@ -1,11 +1,16 @@
 <template>
   <div class="tic-tac-toe-page">
-    Tic Tac Toe Page
+    <TTTBoard />
   </div>
 </template>
 
 <script>
+import TTTBoard from './TTTBoard.vue';
+
 export default {
   name: 'TicTacToePage',
+  components: {
+    TTTBoard,
+  },
 };
 </script>

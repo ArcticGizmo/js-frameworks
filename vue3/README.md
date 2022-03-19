@@ -1,24 +1,11 @@
-# sample-app
+# Init
+https://vuejs.org/guide/
 
-## Project setup
-```
-yarn install
-```
+npm install -g @vue/cli
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+# Created via
+vue create sample-app
+- follow the prompts for vue 3
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# run
+yarn install && yarn serve

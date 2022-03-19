@@ -1,17 +1,15 @@
 <template>
   <div class="nav-item">
-    <Icon :icon="route.icon" />
-    <span class="nav-bar-tooltip"> {{ route.name }} </span>
+    <Icon :icon="props.icon" />
+    <span class="nav-bar-tooltip"> {{ props.name }} </span>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NavItem',
-  props: {
-    route: { type: Object, required: true },
-  },
-};
+<script setup>
+const props = defineProps({
+  icon: String,
+  name: String,
+});
 </script>
 
 <style>

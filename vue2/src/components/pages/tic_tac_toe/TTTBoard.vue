@@ -12,35 +12,37 @@
 <script>
 import TTTCell from './TTTCell.vue';
 
+function nextPlayer(player) {
+  if (player === 'X') {
+    return 'O';
+  }
+  return 'X';
+}
+
 export default {
   name: 'TTTBoard',
   components: {
     TTTCell,
   },
-  data: () => {
-    return {
-      player: 'X',
-      history: [Array(9).fill(null)],
-    };
-  },
-  computed: {
-    cells() {
-      return this.history[this.history.length - 1];
-    },
+  props: {
+    player: { type: String, required: true },
+    cells: { type: Array, required: true },
   },
   methods: {
     onSelect(index) {
       this.setCell(index);
     },
     setCell(index) {
+      const player = nextPlayer(this.player);
       const cells = this.cells.slice();
-      cells[index] = this.player;
-      this.togglePlayer();
+      cells[index] = player;
 
-      this.history.push(cells);
-    },
-    togglePlayer() {
-      this.player = this.player === 'X' ? 'O' : 'X';
+      const state = {
+        player,
+        cells,
+      };
+
+      this.$emit('change', state);
     },
   },
 };
@@ -52,7 +54,7 @@ export default {
   grid-template-columns: 4rem 4rem 4rem;
 }
 
-.ttt-board > * {
+.ttt-board .ttt-cell {
   aspect-ratio: 1;
   font-size: 2.5rem;
   text-align: center;

@@ -1,16 +1,9 @@
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Icon from './components/Icon'
 
+import Layout from './components/layout/Layout';
 
 function App() {
-  return (
-    <div className="App">
-      This is the file
-      <Icon icon={['fas', 'list']} />
-      {/* <FontAwesomeIcon icon={['fas', 'coffee']} /> */}
-    </div>
-  );
+  return <Layout />;
 }
 
 export default App;

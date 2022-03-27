@@ -63,3 +63,15 @@ const onDelete = index => {
   setTodos(entries);
 };
 </script>
+
+<style>
+.todo-page .cards {
+  min-height: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todo-page .cards .todo-card.dim {
+  opacity: 0.5;
+}
+</style>

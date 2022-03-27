@@ -6,7 +6,8 @@
   />
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -22,32 +23,26 @@ const LOOKUP = ICONS.reduce((acc, icon) => {
 // add icons
 library.add(...ICONS);
 
-export default {
-  components: {
-    FontAwesomeIcon,
-  },
-  props: {
-    icon: { type: String, default: null },
-  },
-  computed: {
-    completeIcon() {
-      if (!this.icon) {
-        return;
-      }
+const props = defineProps({
+  icon: String,
+});
 
-      const icon = LOOKUP[this.icon];
+const completeIcon = computed(() => {
+  if (!props.icon) {
+    return;
+  }
 
-      if (!icon) {
-        console.error(
-          `[Icon] Cannot find icon '${this.icon}'. Has it been imported? See /code/icons.js`,
-        );
-        return;
-      }
+  const icon = LOOKUP[props.icon];
 
-      return [icon.prefix, icon.iconName];
-    },
-  },
-};
+  if (!icon) {
+    console.error(
+      `[Icon] Cannot find icon '${props.icon}'. Has it been imported? See /code/icons.js`,
+    );
+    return;
+  }
+
+  return [icon.prefix, icon.iconName];
+});
 </script>
 
 <style>

@@ -16,18 +16,34 @@ const LOOKUP = ICONS.reduce((acc, icon) => {
 library.add(...ICONS);
 
 class Icon extends React.Component {
-  constructor(props) {
-    super(props);
-    console.dir('----- props');
-    console.dir(props);
+  get completeIcon() {
+    const pIcon = this.props.icon;
+
+    if (Array.isArray(pIcon)) {
+      return pIcon;
+    }
+
+    if (!pIcon) {
+      return;
+    }
+
+    const icon = LOOKUP[pIcon];
+
+    if (!icon) {
+      console.error(`[Icon] Cannot find icon '${pIcon}'. Has it been imported? See /code/icons.js`);
+      return;
+    }
+
+    return [icon.prefix, icon.iconName];
   }
 
   render() {
-    const classes = clsx('icon', { invalid: false, hidden: !this.props.icon });
+    const icon = this.completeIcon || ['fas', 'cancel'];
+    const classes = clsx('icon', { invalid: !icon, hidden: !this.props.icon });
 
     return (
       <div>
-        <FontAwesomeIcon className={classes} icon={this.props.icon} />
+        <FontAwesomeIcon className={classes} icon={icon} />
       </div>
     );
   }

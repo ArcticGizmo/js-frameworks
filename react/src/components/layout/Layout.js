@@ -1,25 +1,45 @@
 import React from 'react';
 import './Layout.css';
 
-import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
-import TodoPage from '../pages/todo/TodoPage';
-import TicTacToePage from '../pages/tic_tac_toe/TicTacToePage';
+import { BrowserRouter, Link, Navigate, Routes, Route } from 'react-router-dom';
+import NavItem from './NavItem';
+
+import ROUTES from '../../code/routes';
 
 class Layout extends React.Component {
   render() {
+    const navItems = ROUTES.map(r => {
+      return (
+        <Link key={r.path} to={r.path}>
+          <NavItem route={r} />
+        </Link>
+      );
+    });
+
+    const pages = ROUTES.map((r, i) => {
+      const TagName = r.component;
+      return <Route path={r.path} element={<TagName />} key={i} />;
+    });
+
+    let redirect = null;
+    const redirectTo = ROUTES.find(r => r.redirect);
+
+    if (redirectTo) {
+      redirect = <Route path="*" element={<Navigate to={redirectTo.path} replace />} />;
+    }
+
     return (
       <div className="layout">
-        <div className="nav-bar"></div>
+        <BrowserRouter>
+          <nav className="nav-bar">{navItems}</nav>
 
-        <div className="page-wrapper">
-          <BrowserRouter className="page">
-            <Routes>
-              <Route path="/todo" element={<TodoPage />} />
-              <Route path="/tic_tac_toe" element={<TicTacToePage />} />
-              <Route path="*" element={<Navigate to="/todo" replace />} />
+          <div className="page-wrapper">
+            <Routes className="page">
+              {pages}
+              {redirect}
             </Routes>
-          </BrowserRouter>
-        </div>
+          </div>
+        </BrowserRouter>
       </div>
     );
   }

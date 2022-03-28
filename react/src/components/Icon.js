@@ -18,7 +18,6 @@ library.add(...ICONS);
 class Icon extends React.Component {
   get completeIcon() {
     const pIcon = this.props.icon;
-
     if (Array.isArray(pIcon)) {
       return pIcon;
     }

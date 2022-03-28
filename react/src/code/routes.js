@@ -1,10 +1,9 @@
-import second from '../components/pages'
+import TodoPage from '../components/pages/todo/TodoPage';
+import TicTacToePage from '../components/pages/tic_tac_toe/TicTacToePage';
 
 export default [
   {
-    path: '*',
-  },
-  {
+    redirect: true,
     path: '/todo',
     name: 'Todo',
     icon: 'list',

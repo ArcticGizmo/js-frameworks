@@ -39,10 +39,12 @@ class Layout extends React.Component {
           <nav className="nav-bar">{navItems}</nav>
 
           <div className="page-wrapper">
-            <Routes className="page">
-              {pages}
-              {redirect}
-            </Routes>
+            <div className="page">
+              <Routes>
+                {pages}
+                {redirect}
+              </Routes>
+            </div>
           </div>
         </BrowserRouter>
       </div>

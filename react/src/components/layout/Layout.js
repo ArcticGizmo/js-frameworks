@@ -1,7 +1,8 @@
 import React from 'react';
 import './Layout.css';
+import clsx from 'clsx';
 
-import { BrowserRouter, Link, Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, NavLink, Navigate, Routes, Route } from 'react-router-dom';
 import NavItem from './NavItem';
 
 import ROUTES from '../../code/routes';
@@ -10,9 +11,13 @@ class Layout extends React.Component {
   render() {
     const navItems = ROUTES.map(r => {
       return (
-        <Link key={r.path} to={r.path}>
+        <NavLink
+          className={state => clsx({ 'router-link-active': state.isActive })}
+          key={r.path}
+          to={r.path}
+        >
           <NavItem route={r} />
-        </Link>
+        </NavLink>
       );
     });
 

@@ -2,14 +2,15 @@ import React from 'react';
 import './TodoCard.css';
 
 import Icon from '../../Icon';
+import CompleteIcon from './CompleteIcon';
 
 class TodoCard extends React.Component {
   render() {
-    const { title, completed } = this.props;
+    const { title, completed, onToggle } = this.props;
 
     return (
-      <div class="todo-card">
-        {/* <CompleteIcon value={!!completed} onInput={e => this.props.onToggleCompleted(e)} /> */}
+      <div className="todo-card">
+        <CompleteIcon value={!!completed} onToggle={e => onToggle && onToggle(e)} />
         <input
           className={title}
           value={title}

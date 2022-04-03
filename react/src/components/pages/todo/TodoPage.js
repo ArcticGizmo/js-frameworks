@@ -1,74 +1,71 @@
-import React from 'react';
 import './TodoPage.css';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { set } from '../../../store/slicers/todos';
+
 import TodoCard from './TodoCard';
 import clsx from 'clsx';
 
-let TODOS = [{ title: 'Example todo', created: new Date(), completed: null }];
+export default function TodoPage() {
+  const todos = useSelector(state => state.todos.value);
+  const dispatch = useDispatch();
 
-class TicTacToePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: TODOS.slice(),
-    };
-  }
+  const setTodos = e => dispatch(set(e));
 
-  onAdd() {
-    const todos = this.state.todos.slice();
+  const onAdd = () => {
+    const entries = todos.slice();
     const todo = { title: '', created: new Date(), completed: null };
-    todos.push(todo);
+    entries.push(todo);
 
-    this.setState({ todos });
-  }
+    setTodos(entries);
+  };
 
-  onToggleComplete(index) {
-    const todos = this.state.todos.slice();
-    const todo = { ...todos[index] };
+  const onToggleComplete = index => {
+    const entries = todos.slice();
+    const todo = { ...entries[index] };
 
     todo.completed = todo.completed ? null : new Date();
 
-    todos[index] = todo;
+    entries[index] = todo;
 
-    this.setState({ todos });
-  }
+    setTodos(entries);
+  };
 
-  onTextChange(index, title) {
-    const todos = this.state.todos.slice();
-    const todo = { ...todos[index], title };
+  const onTextChange = (index, title) => {
+    const entries = todos.slice();
 
-    todos[index] = todo;
+    const todo = { ...entries[index], title };
 
-    this.setState({ todos });
-  }
+    entries[index] = todo;
 
-  onDelete(index) {
-    const todos = this.state.todos.slice();
-    todos.splice(index, 1);
-    this.setState({ todos });
-  }
+    setTodos(entries);
+  };
 
-  render() {
-    const cards = this.state.todos.map((todo, index) => (
-      <TodoCard
-        key={index}
-        className={clsx({ dim: !!todo.completed })}
-        title={todo.title}
-        completed={todo.completed}
-        onToggle={() => this.onToggleComplete(index)}
-        onTextChange={e => this.onTextChange(index, e)}
-        onDelete={() => this.onDelete(index)}
-      />
-    ));
+  const onDelete = index => {
+    const entries = todos.slice();
 
-    return (
-      <div className="todo-page">
-        <div className="add">
-          <button onClick={() => this.onAdd()}>Create New</button>
-        </div>
-        <div className="cards">{cards}</div>
+    entries.splice(index, 1);
+    setTodos(entries);
+  };
+
+  const cards = todos.map((todo, index) => (
+    <TodoCard
+      key={index}
+      className={clsx({ dim: !!todo.completed })}
+      title={todo.title}
+      completed={todo.completed}
+      onToggle={() => onToggleComplete(index)}
+      onTextChange={e => onTextChange(index, e)}
+      onDelete={() => onDelete(index)}
+    />
+  ));
+
+  return (
+    <div className="todo-page">
+      <div className="add">
+        <button onClick={onAdd}>Create New</button>
       </div>
-    );
-  }
+      <div className="cards">{cards}</div>
+    </div>
+  );
 }
-
-export default TicTacToePage;

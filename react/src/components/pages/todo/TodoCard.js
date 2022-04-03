@@ -17,6 +17,7 @@ class TodoCard extends React.Component {
           disabled={!!completed}
           onChange={e => onTextChange && onTextChange(e.target.value)}
         />
+
         <Icon className="delete" icon="xmark" onClick={onDelete} />
       </div>
     );

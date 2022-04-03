@@ -48,6 +48,8 @@ class TicTacToePage extends React.Component {
       <TodoCard
         key={index}
         className={clsx({ dim: !!todo.completed })}
+        title={todo.title}
+        completed={todo.completed}
         onToggle={() => this.onToggleComplete(index)}
         onTextChange={e => this.onTextChange(index, e)}
         onDelete={() => this.onDelete(index)}

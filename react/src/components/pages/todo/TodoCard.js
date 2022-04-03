@@ -7,7 +7,6 @@ import CompleteIcon from './CompleteIcon';
 class TodoCard extends React.Component {
   render() {
     const { title, completed, onToggle, onTextChange, onDelete } = this.props;
-
     return (
       <div className="todo-card">
         <CompleteIcon value={!!completed} onToggle={e => onToggle(e)} />
@@ -17,7 +16,6 @@ class TodoCard extends React.Component {
           disabled={!!completed}
           onChange={e => onTextChange && onTextChange(e.target.value)}
         />
-
         <Icon className="delete" icon="xmark" onClick={onDelete} />
       </div>
     );

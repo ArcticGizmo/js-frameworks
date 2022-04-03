@@ -32,9 +32,13 @@ class TicTacToePage extends React.Component {
     this.setState({ todos });
   }
 
-  onTextChange(index, event) {
-    console.dir('--- on text change');
-    console.dir(event);
+  onTextChange(index, title) {
+    const todos = this.state.todos.slice();
+    const todo = { ...todos[index], title };
+
+    todos[index] = todo;
+
+    this.setState({ todos });
   }
 
   onDelete(index) {

@@ -6,32 +6,30 @@ import clsx from 'clsx';
 let TODOS = [{ title: 'Example todo', created: new Date(), completed: null }];
 
 class TicTacToePage extends React.Component {
-  get todos() {
-    // something to do redux or something
-    return TODOS;
-  }
-
-  set todos(value) {
-    TODOS = value;
-    this.render();
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: TODOS.slice(),
+    };
   }
 
   onAdd() {
-    const todos = this.todos.slice();
+    const todos = this.state.todos.slice();
     const todo = { title: '', created: new Date(), completed: null };
     todos.push(todo);
-    this.todos = todos;
+
+    this.setState({ todos });
   }
 
   onToggleComplete(index) {
-    const todos = this.todos.slice();
+    const todos = this.state.todos.slice();
     const todo = { ...todos[index] };
 
     todo.completed = todo.completed ? null : new Date();
 
     todos[index] = todo;
 
-    this.todos = todos;
+    this.setState({ todos });
   }
 
   onTextChange(index, event) {
@@ -40,13 +38,13 @@ class TicTacToePage extends React.Component {
   }
 
   onDelete(index) {
-    const todos = this.todos.slice();
+    const todos = this.state.todos.slice();
     todos.splice(index, 1);
-    this.todos = todos;
+    this.setState({ todos });
   }
 
   render() {
-    const cards = this.todos.map((todo, index) => (
+    const cards = this.state.todos.map((todo, index) => (
       <TodoCard
         key={index}
         className={clsx({ dim: !!todo.completed })}
@@ -55,8 +53,6 @@ class TicTacToePage extends React.Component {
         onDelete={() => this.onDelete(index)}
       />
     ));
-
-    console.dir(cards);
 
     return (
       <div className="todo-page">

@@ -6,18 +6,18 @@ import CompleteIcon from './CompleteIcon';
 
 class TodoCard extends React.Component {
   render() {
-    const { title, completed, onToggle } = this.props;
+    const { title, completed, onToggle, onTextChange, onDelete } = this.props;
 
     return (
       <div className="todo-card">
-        <CompleteIcon value={!!completed} onToggle={e => onToggle && onToggle(e)} />
+        <CompleteIcon value={!!completed} onToggle={e => onToggle(e)} />
         <input
-          className={title}
+          className="title"
           value={title}
           disabled={!!completed}
-          onChange={e => this.props.onTextChange(e.target.value)}
+          onChange={e => onTextChange && onTextChange(e.target.value)}
         />
-        <Icon className="delete" icon="xmark" onClick={this.props.onDelete} />
+        <Icon className="delete" icon="xmark" onClick={onDelete} />
       </div>
     );
   }

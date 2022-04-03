@@ -39,9 +39,12 @@ class Icon extends React.Component {
 
   render() {
     const icon = this.completeIcon || ['fas', 'cancel'];
-    const classes = clsx('icon', { invalid: !icon, hidden: !this.props.icon });
+    const classes = clsx(this.props.className, 'icon', {
+      invalid: !icon,
+      hidden: !this.props.icon,
+    });
 
-    return <FontAwesomeIcon className={classes} icon={icon} />;
+    return <FontAwesomeIcon className={classes} icon={icon} onClick={this.props.onClick} />;
   }
 }
 

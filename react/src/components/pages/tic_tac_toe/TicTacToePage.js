@@ -70,8 +70,8 @@ class TicTacToePage extends React.Component {
               cells={active.cells}
               onChange={e => this.onChange(e)}
             />
+            {winner}
           </div>
-          {winner}
         </div>
       </div>
     );

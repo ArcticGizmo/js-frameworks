@@ -14,7 +14,7 @@ export default function TodoPage() {
 
   const onAdd = () => {
     const entries = todos.slice();
-    const todo = { title: '', created: new Date(), completed: null };
+    const todo = { title: '', created: Date.now(), completed: null };
     entries.push(todo);
 
     setTodos(entries);
@@ -24,7 +24,7 @@ export default function TodoPage() {
     const entries = todos.slice();
     const todo = { ...entries[index] };
 
-    todo.completed = todo.completed ? null : new Date();
+    todo.completed = todo.completed ? null : Date.now();
 
     entries[index] = todo;
 

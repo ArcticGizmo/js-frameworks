@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-card',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoCardComponent {
   @Input() childMessage: string = '';
+
+  @Output() messageEvent = new EventEmitter<string>();
+
+  sendMessage() {
+    this.messageEvent.emit('Hello from child');
+  }
 }

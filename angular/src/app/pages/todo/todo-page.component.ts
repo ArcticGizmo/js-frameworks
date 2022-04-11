@@ -12,4 +12,8 @@ export class TodoPageComponent implements OnInit {
   ngOnInit() {
     console.dir('---- on init');
   }
+
+  onMessage(msg: string) {
+    alert(msg);
+  }
 }

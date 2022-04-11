@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'todo-page',
   templateUrl: './todo-page.component.html',
   styleUrls: ['./todo-page.component.css'],
 })
-export class TodoPageComponent {
-  title = 'apple';
+export class TodoPageComponent implements OnInit {
+  title = 'Hello World';
+  apple = {key: 7};
+
+  ngOnInit() {
+    console.dir('---- on init');
+  }
 }

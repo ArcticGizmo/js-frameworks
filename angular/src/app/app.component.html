@@ -1,3 +1,24 @@
 <div id="app">
-  <todo-page></todo-page>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/todo" routerLinkActive="active">First Component</a>
+      </li>
+      <li>
+        <a routerLink="/tic-tac-toe" routerLinkActive="active"
+          >Second Component</a
+        >
+      </li>
+    </ul>
+  </nav>
+
+  <!-- <ul>
+    https://coryrylan.com/blog/angular-ng-for-syntax
+    <li *ngFor="let item of items; let i = index">
+      {{i}} {{item}}
+    </li>
+  </ul> -->
+
+  <!-- The routed views render in the <router-outlet>-->
+  <router-outlet></router-outlet>
 </div>

@@ -1,2 +1,5 @@
-Say {{ childMessage }}
-<button (click)="sendMessage()">Send Message</button>
+<div class="todo-card">
+  <!-- icon -->
+  <input class="title" [value]="title" [disabled]="!!completed" (change)="onTextChange($event)" />
+  <icon [icon]="'circle-check'"></icon>
+</div>

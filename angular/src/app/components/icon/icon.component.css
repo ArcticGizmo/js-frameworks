@@ -1,0 +1,13 @@
+svg.icon.svg-inline--fa {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.icon.invalid {
+  color: red;
+}
+
+.icon.hidden {
+  opacity: 0;
+}

@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconComponent } from './components/icon/icon.component';
 import { TodoPageComponent } from './pages/todo/todo-page.component';
 import { TodoCardComponent } from './pages/todo/card/todo-card.component';
+import { CompleteIconComponent } from './pages/todo/complete-icon/complete-icon.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TodoCardComponent } from './pages/todo/card/todo-card.component';
     TodoPageComponent,
     TodoCardComponent,
     IconComponent,
+    CompleteIconComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],

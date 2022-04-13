@@ -1,5 +1,13 @@
 <div class="todo-card">
-  <!-- icon -->
-  <input class="title" [value]="title" [disabled]="!!completed" (change)="onTextChange($event)" />
+  <complete-icon
+    [value]="!!completed"
+    (input)="onToggleCompleted($event)"
+  ></complete-icon>
+  <input
+    class="title"
+    [value]="title"
+    [disabled]="!!completed"
+    (change)="onTextChange($event)"
+  />
   <icon [icon]="'circle-check'"></icon>
 </div>

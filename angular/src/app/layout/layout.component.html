@@ -1,1 +1,13 @@
-<p>layout works!</p>
+<div class="layout">
+  <div class="nav-bar">
+    <a *ngFor="let route of routes" [routerLink]="route.path">
+      <nav-item [route]="route"></nav-item>
+    </a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="page">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

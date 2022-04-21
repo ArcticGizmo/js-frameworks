@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { CustomRoute } from 'src/app/code/types';
 
 @Component({
-  selector: 'app-nav-item',
+  selector: 'nav-item',
   templateUrl: './nav-item.component.html',
-  styleUrls: ['./nav-item.component.css']
+  styleUrls: ['./nav-item.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class NavItemComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class NavItemComponent {
+  @Input() route: CustomRoute | undefined = undefined;
 }

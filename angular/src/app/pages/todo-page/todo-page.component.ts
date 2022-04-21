@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'todo-page',
@@ -7,11 +7,7 @@ import { Component, EventEmitter } from '@angular/core';
 })
 export class TodoPageComponent {
   title = 'Hello World';
-  apple = {key: 7};
-
-  ngOnInit() {
-    console.dir('---- on init');
-  }
+  apple = { key: 7 };
 
   onMessage(msg: string) {
     alert(msg);

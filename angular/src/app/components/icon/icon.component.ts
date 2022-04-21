@@ -4,6 +4,7 @@ import {
   OnChanges,
   SimpleChange,
   SimpleChanges,
+  ViewEncapsulation,
 } from '@angular/core';
 import * as allIcons from '../../code/icons';
 
@@ -22,6 +23,7 @@ const LOOKUP: Lookup = ICONS.reduce((acc: any, icon: any) => {
   selector: 'icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class IconComponent implements OnChanges {
   @Input() icon: string = '';

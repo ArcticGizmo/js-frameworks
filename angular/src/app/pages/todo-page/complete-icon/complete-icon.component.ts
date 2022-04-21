@@ -2,21 +2,19 @@ import {
   Component,
   Input,
   EventEmitter,
-  OnChanges,
-  SimpleChanges,
   Output,
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
   selector: 'complete-icon',
   templateUrl: './complete-icon.component.html',
   styleUrls: ['./complete-icon.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class CompleteIconComponent implements OnChanges {
+export class CompleteIconComponent {
   @Input() value: boolean = false;
   @Output() input = new EventEmitter();
-
-  ngOnChanges(changes: SimpleChanges): void {}
 
   onToggle() {
     this.input.emit(!this.value);

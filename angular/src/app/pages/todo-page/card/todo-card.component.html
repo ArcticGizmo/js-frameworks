@@ -9,5 +9,5 @@
     [disabled]="!!completed"
     (change)="onTextChange($event)"
   />
-  <icon [icon]="'circle-check'"></icon>
+  <icon class="delete" icon="xmark" (click)="onDelete()"></icon>
 </div>

@@ -1,17 +1,20 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'todo-card',
   templateUrl: './todo-card.component.html',
   styleUrls: ['./todo-card.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TodoCardComponent {
-  faCheckCircle = faCheckCircle;
-  title: string = '';
-  completed: boolean = false;
-
-  @Input() childMessage: string = '';
+  @Input() title: string = '';
+  @Input() completed: Date | null | undefined = undefined;
 
   @Output() toggle = new EventEmitter<boolean>();
   @Output() textChange = new EventEmitter<string>();

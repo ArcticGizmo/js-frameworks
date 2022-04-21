@@ -1,6 +1,10 @@
 <div class="layout">
   <div class="nav-bar">
-    <a *ngFor="let route of routes" [routerLink]="route.path">
+    <a
+      *ngFor="let route of routes"
+      [routerLink]="route.path"
+      [routerLinkActive]="'router-link-active'"
+    >
       <nav-item [route]="route"></nav-item>
     </a>
   </div>

@@ -1,0 +1,7 @@
+<div
+  class="complete-icon"
+  [ngClass]="{ complete: value, incomplete: !value }"
+  (click)="onToggle()"
+>
+  <icon [icon]="'check'"></icon>
+</div>

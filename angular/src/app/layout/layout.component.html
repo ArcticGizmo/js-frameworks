@@ -1,0 +1,18 @@
+<div class="layout">
+  <div class="nav-bar">
+    <img src="/assets/logo.png" />
+    <a
+      *ngFor="let route of routes"
+      [routerLink]="route.path"
+      [routerLinkActive]="'router-link-active'"
+    >
+      <nav-item [route]="route"></nav-item>
+    </a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="page">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

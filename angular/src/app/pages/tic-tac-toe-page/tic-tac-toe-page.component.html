@@ -1,0 +1,19 @@
+<div class="tic-tac-toe-page">
+  <div class="actions">
+    <button (click)="onReset()">Reset</button>
+    <button *ngIf="history.length > 1" (click)="onUndo()">Undo</button>
+  </div>
+  <div class="game-wrapper">
+    <div class="game-area">
+      <ttt-board
+        [ngClass]="{ complete: !!winningPlayer }"
+        [player]="active.player"
+        [cells]="active.cells"
+        (change)="onChange($event)"
+      ></ttt-board>
+      <div *ngIf="winningPlayer" class="winner">
+        <div class="label">Player {{ winningPlayer }} Wins!</div>
+      </div>
+    </div>
+  </div>
+</div>

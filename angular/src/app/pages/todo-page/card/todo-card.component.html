@@ -1,0 +1,13 @@
+<div class="todo-card">
+  <complete-icon
+    [value]="!!completed"
+    (input)="onToggleCompleted($event)"
+  ></complete-icon>
+  <input
+    class="title"
+    [value]="title"
+    [disabled]="!!completed"
+    (change)="onTextChange($event)"
+  />
+  <icon class="delete" icon="xmark" (click)="onDelete()"></icon>
+</div>

@@ -1,0 +1,16 @@
+<div class="todo-page">
+  <div class="add">
+    <button (click)="onAdd()">Create New</button>
+  </div>
+  <div class="cards">
+    <todo-card
+      *ngFor="let entry of $todos; let index = index"
+      [ngClass]="{ dim: !!entry.completed }"
+      [title]="entry.title"
+      [completed]="entry.completed"
+      (toggle)="onToggleComplete(index)"
+      (textChange)="onTextChange(index, $event)"
+      (delete)="onDelete(index)"
+    ></todo-card>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 <template>
   <div class="layout">
     <div class="nav-bar">
+      <img src="logo.png" />
       <router-link v-for="route in routes" :key="route.path" :to="route.path">
         <NavItem :route="route" />
       </router-link>
@@ -48,6 +49,11 @@ body {
   background-color: #202225;
   height: 100vh;
   z-index: 1000;
+}
+
+.layout .nav-bar img {
+  border-bottom: 1px solid gray;
+  padding: 0.5rem;
 }
 
 .layout .page-wrapper {

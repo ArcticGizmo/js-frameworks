@@ -36,7 +36,10 @@ class Layout extends React.Component {
     return (
       <div className="layout">
         <BrowserRouter>
-          <nav className="nav-bar">{navItems}</nav>
+          <nav className="nav-bar">
+            <img src="logo512.png" alt="React Logo" />
+            {navItems}
+          </nav>
 
           <div className="page-wrapper">
             <div className="page">

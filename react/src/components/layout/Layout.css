@@ -17,6 +17,11 @@ body {
   z-index: 1000;
 }
 
+.layout .nav-bar img {
+  border-bottom: 1px solid gray;
+  padding: 0.5rem;
+}
+
 .layout .page-wrapper {
   margin-left: 4rem;
 }

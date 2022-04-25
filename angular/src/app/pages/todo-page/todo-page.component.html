@@ -4,7 +4,7 @@
   </div>
   <div class="cards">
     <todo-card
-      *ngFor="let entry of todos; let index = index"
+      *ngFor="let entry of $todos; let index = index"
       [ngClass]="{ dim: !!entry.completed }"
       [title]="entry.title"
       [completed]="entry.completed"

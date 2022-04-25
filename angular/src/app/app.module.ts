@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconComponent } from './components/icon/icon.component';
 
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './store/todo/todo.reducer';
+
 import { TodoPageComponent } from './pages/todo-page/todo-page.component';
 import { TicTacToeComponent } from './pages/tic-tac-toe/tic-tac-toe.component';
 
@@ -26,7 +29,12 @@ import { NavItemComponent } from './layout/nav-item/nav-item.component';
     NavItemComponent,
     TicTacToeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot({ todos: todoReducer }),
+    FontAwesomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

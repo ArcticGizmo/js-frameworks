@@ -1,10 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
-type Todo = {
-  title: string;
-  created: Date;
-  completed: Date | null;
-};
+import { Store } from '@ngrx/store';
+import { setTodos } from '../../store/todo/todo.actions';
+import { Todo } from 'src/app/code/types';
 
 @Component({
   selector: 'todo-page',
@@ -14,21 +11,25 @@ type Todo = {
 })
 export class TodoPageComponent {
   // eventually this should come from some form of store
-  todos: Todo[] = [];
+  $todos: Todo[] = [];
+
+  constructor(private store: Store<{ todos: Todo[] }>) {
+    store.select('todos').subscribe((todos) => (this.$todos = todos));
+  }
 
   setTodos(todos: Todo[]) {
-    this.todos = todos;
+    this.store.dispatch(setTodos({ todos }));
   }
 
   onAdd() {
-    const todos = this.todos.slice();
+    const todos = this.$todos.slice();
     const todo = { title: '', created: new Date(), completed: null };
     todos.push(todo);
     this.setTodos(todos);
   }
 
   onToggleComplete(index: number) {
-    const todos = this.todos.slice();
+    const todos = this.$todos.slice();
     const todo = { ...todos[index] };
 
     if (todo.completed) {
@@ -42,7 +43,7 @@ export class TodoPageComponent {
     this.setTodos(todos);
   }
   onTextChange(index: number, title: string) {
-    const todos = this.todos.slice();
+    const todos = this.$todos.slice();
     const todo = { ...todos[index], title };
 
     todos[index] = todo;
@@ -51,7 +52,7 @@ export class TodoPageComponent {
   }
 
   onDelete(index: number) {
-    const todos = this.todos.slice();
+    const todos = this.$todos.slice();
     todos.splice(index, 1);
     this.setTodos(todos);
   }

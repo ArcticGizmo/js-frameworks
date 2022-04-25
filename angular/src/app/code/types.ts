@@ -7,3 +7,7 @@ export type Todo = {
   created: Date;
   completed: Date | null | undefined;
 };
+export type Board = {
+  player: string;
+  cells: string[];
+};

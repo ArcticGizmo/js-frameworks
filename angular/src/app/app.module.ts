@@ -10,24 +10,27 @@ import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './store/todo/todo.reducer';
 
 import { TodoPageComponent } from './pages/todo-page/todo-page.component';
-import { TicTacToeComponent } from './pages/tic-tac-toe/tic-tac-toe.component';
+import { TicTacToePageComponent } from './pages/tic-tac-toe-page/tic-tac-toe-page.component';
 
 import { TodoCardComponent } from './pages/todo-page/card/todo-card.component';
 import { CompleteIconComponent } from './pages/todo-page/complete-icon/complete-icon.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NavItemComponent } from './layout/nav-item/nav-item.component';
+import { TttBoardComponent } from './pages/tic-tac-toe-page/ttt-board/ttt-board.component';
+import { TttCellComponent } from './pages/tic-tac-toe-page/ttt-cell/ttt-cell.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoPageComponent,
-    TicTacToeComponent,
+    TicTacToePageComponent,
     TodoCardComponent,
     IconComponent,
     CompleteIconComponent,
     LayoutComponent,
     NavItemComponent,
-    TicTacToeComponent,
+    TttBoardComponent,
+    TttCellComponent,
   ],
   imports: [
     BrowserModule,

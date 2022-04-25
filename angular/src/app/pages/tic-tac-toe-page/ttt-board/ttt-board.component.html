@@ -1,0 +1,7 @@
+<div class="ttt-board">
+  <ttt-cell
+    *ngFor="let letter of cells; let index = index"
+    [letter]="letter"
+    (select)="onSelect(index)"
+  ></ttt-cell>
+</div>

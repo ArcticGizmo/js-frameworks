@@ -16,23 +16,28 @@
     justify-content: center;
   }
 
-  .nav-item .icon {
+  .nav-item :global(.icon) {
     cursor: pointer;
     width: 3rem;
     height: 3rem;
     margin: 0.5rem;
     padding: 0.5rem;
-    color: #3fb27f;
+    color: #ff3e00;
     background-color: #2f3136;
     border-radius: 2rem;
     transition: all 0.3s;
   }
 
-  .router-link-active .nav-item .icon,
-  .nav-item:hover .icon {
+  .nav-item :global(.icon svg.svelte-fa) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :global(.active) .nav-item :global(.icon),
+  .nav-item:hover :global(.icon) {
     color: white;
     border-radius: 0.75rem;
-    background-color: #3fb27f;
+    background-color: #ff3e00;
   }
 
   .nav-item .nav-bar-tooltip {

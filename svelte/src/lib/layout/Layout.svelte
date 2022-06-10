@@ -1,36 +1,46 @@
 <script>
-  import { Router, Route, Link } from 'svelte-navigator';
+  import { link } from 'svelte-spa-router';
+  import active from 'svelte-spa-router/active';
+  import Router from 'svelte-spa-router';
 
   import logo from '../../assets/logo.png';
   import NavItem from './NavItem.svelte';
 
-  export let routes = [];
+  export let routes = {};
+
+  function createRouteMap(givenRoutes) {
+    const map = {};
+
+    givenRoutes.forEach(r => {
+      if (r.component) {
+        map[r.path] = r.component;
+      }
+    });
+
+    return map;
+  }
 
   $: validRoutes = routes.filter(r => (r.meta || {}).hide !== true);
+
+  $: routeMap = createRouteMap(routes);
 </script>
 
-<Router>
-  <div class="layout">
-    <nav class="eggplant">
-      <img src={logo} alt="Svelte Logo" />
-      {#each validRoutes as route}
-        <Link to={route.path}>
-          <NavItem {route} />
-        </Link>
-      {/each}
-    </nav>
+<div class="layout">
+  <nav class="eggplant">
+    <img src={logo} alt="Svelte Logo" />
+    {#each validRoutes as route}
+      <a href={route.path} use:link use:active>
+        <NavItem {route} />
+      </a>
+    {/each}
+  </nav>
 
-    <div class="page-wrapper">
-      <div class="page">
-        {#each routes as route}
-          <Route path={route.path}>
-            <svelte:component this={route.component} />
-          </Route>
-        {/each}
-      </div>
+  <div class="page-wrapper">
+    <div class="page">
+      <Router routes={routeMap} />
     </div>
   </div>
-</Router>
+</div>
 
 <style>
   .layout {

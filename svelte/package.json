@@ -16,6 +16,6 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "svelte-fa": "^3.0.1",
-    "svelte-navigator": "^3.1.6"
+    "svelte-spa-router": "^3.2.0"
   }
 }

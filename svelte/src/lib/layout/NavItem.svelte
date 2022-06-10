@@ -1,9 +1,11 @@
 <script>
+  import Icon from '../components/Icon.svelte';
+
   export let route = {};
 </script>
 
 <div class="nav-item">
-  x
+  <Icon icon={route.icon} />
   <span class="nav-bar-tooltip"> {route.name} </span>
 </div>
 

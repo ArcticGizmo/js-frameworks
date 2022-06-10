@@ -7,5 +7,5 @@ export function cls(obj) {
     }
   });
 
-  return classes;
+  return classes.join(' ');
 }

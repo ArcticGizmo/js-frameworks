@@ -1,5 +1,7 @@
 <script>
+  import Icon from '../../components/Icon.svelte';
   import { createEventDispatcher } from 'svelte';
+  import CompleteIcon from './CompleteIcon.svelte';
 
   export let completed = false;
   export let title = '';
@@ -12,9 +14,9 @@
 </script>
 
 <div class="todo-card">
-  <!-- complete icon here -->
+  <CompleteIcon value={!!completed} on:input={onToggleComplete} />
   <input type="title" class="title" value={title} disabled={!!completed} on:change={onTextChange} />
-  <!-- icon -->
+  <Icon class="delete" icon="xmark" on:click={onDelete} />
 </div>
 
 <style>
@@ -38,13 +40,13 @@
     flex-grow: 1;
   }
 
-  .todo-card .delete {
+  .todo-card :global(.delete) {
     cursor: pointer;
     margin: auto;
     margin-left: 0.5rem;
   }
 
-  .todo-card .delete:hover {
+  .todo-card  :global(.delete:hover) {
     opacity: 0.8;
   }
 </style>

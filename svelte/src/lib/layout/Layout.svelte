@@ -12,7 +12,7 @@
 <Router>
   <div class="layout">
     <nav class="eggplant">
-      <!-- <img src={logo} alt="Svelte Logo" /> -->
+      <img src={logo} alt="Svelte Logo" />
       {#each validRoutes as route}
         <Link to={route.path}>
           <NavItem {route} />
@@ -23,7 +23,9 @@
     <div class="page-wrapper">
       <div class="page">
         {#each routes as route}
-          <Route path={route.path} component={route.component} />
+          <Route path={route.path}>
+            <svelte:component this={route.component} />
+          </Route>
         {/each}
       </div>
     </div>

@@ -11,8 +11,8 @@
 
 <Router>
   <div class="layout">
-    <nav>
-      <img src={logo} alt="Svelte Logo" />
+    <nav class="eggplant">
+      <!-- <img src={logo} alt="Svelte Logo" /> -->
       {#each validRoutes as route}
         <Link to={route.path}>
           <NavItem {route} />
@@ -29,3 +29,36 @@
     </div>
   </div>
 </Router>
+
+<style>
+  .layout {
+    color: black;
+  }
+
+  .layout nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    background-color: #202225;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .layout nav img {
+    border-bottom: 1px solid gray;
+    padding: 0.5rem;
+  }
+
+  .layout .page-wrapper {
+    margin-left: 4rem;
+  }
+
+  .layout .page {
+    margin: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.1px solid gray;
+  }
+</style>

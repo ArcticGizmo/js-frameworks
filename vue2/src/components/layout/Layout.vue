@@ -40,7 +40,7 @@ body {
   color: black;
 }
 
-.layout .nav-bar {
+.layout nav {
   position: fixed;
   top: 0;
   display: flex;
@@ -51,7 +51,7 @@ body {
   z-index: 1000;
 }
 
-.layout .nav-bar img {
+.layout nav img {
   border-bottom: 1px solid gray;
   padding: 0.5rem;
 }

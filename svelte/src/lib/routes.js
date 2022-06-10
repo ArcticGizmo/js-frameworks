@@ -4,8 +4,10 @@ import TicTacToePage from './pages/tic_tac_toe/TicTacToePage.svelte';
 const routes = [
   {
     path: '/',
-    redirect: '/todo',
-    hide: true,
+    component: TodoPage,
+    meta: {
+      hide: true,
+    },
   },
   {
     path: '/todo',

@@ -1,25 +1,31 @@
 <script>
   import { Router, Route, Link } from 'svelte-navigator';
 
-  import logo from './assets/svelte.png';
+  import logo from '../../assets/logo.png';
   import NavItem from './NavItem.svelte';
 
   export let routes = [];
+
+  $: validRoutes = routes.filter(r => (r.meta || {}).hide !== true);
 </script>
 
-<div class="layout">
-  <div class="nav-bar">
-    <img src={logo} alt="Svelte Logo" />
-    {#each routes as route}
-      <Route path={route.path}>
-        <NavItem {route} />
-      </Route>
-    {/each}
-  </div>
+<Router>
+  <div class="layout">
+    <nav>
+      <img src={logo} alt="Svelte Logo" />
+      {#each validRoutes as route}
+        <Link to={route.path}>
+          <NavItem {route} />
+        </Link>
+      {/each}
+    </nav>
 
-  <div class="page-wrapper">
-    <div class="page">
-      <!-- route view -->
+    <div class="page-wrapper">
+      <div class="page">
+        {#each routes as route}
+          <Route path={route.path} component={route.component} />
+        {/each}
+      </div>
     </div>
   </div>
-</div>
+</Router>

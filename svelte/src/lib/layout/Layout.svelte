@@ -1,5 +1,5 @@
 <script>
-  import { link } from 'svelte-spa-router';
+  import { link, push } from 'svelte-spa-router';
   import active from 'svelte-spa-router/active';
   import Router from 'svelte-spa-router';
 
@@ -9,7 +9,9 @@
   export let routes = {};
 
   function createRouteMap(givenRoutes) {
-    const map = {};
+    const map = {
+      '/': undefined,
+    };
 
     givenRoutes.forEach(r => {
       if (r.component) {
@@ -23,6 +25,8 @@
   $: validRoutes = routes.filter(r => (r.meta || {}).hide !== true);
 
   $: routeMap = createRouteMap(routes);
+
+  push('/todo');
 </script>
 
 <div class="layout">

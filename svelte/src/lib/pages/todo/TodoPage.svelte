@@ -1,10 +1,12 @@
 <script>
   import TodoCard from './TodoCard.svelte';
+  import { todoStore } from '../../store';
 
-  let todos = [{ title: 'Example todo', created: new Date(), completed: null }];
+  let todos = [];
+  todoStore.subscribe(v => (todos = v));
 
   function setTodos(data) {
-    todos = data.slice();
+    todoStore.set(data);
   }
 
   const onAdd = () => {
@@ -70,7 +72,7 @@
     flex-wrap: wrap;
   }
 
-  .todo-page .cards .todo-card.dim {
+  .todo-page .cards :global(.todo-card.dim) {
     opacity: 0.5;
   }
 </style>

@@ -1,3 +1,3 @@
-// import { writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
-// export const count = writable(0);
+export const todoStore = writable([{ title: 'Example todo', created: new Date(), completed: null }]);

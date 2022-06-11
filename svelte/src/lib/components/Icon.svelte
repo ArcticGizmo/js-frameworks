@@ -1,4 +1,5 @@
 <script>
+  import {createEventDispatcher} from 'svelte';
   import Fa from 'svelte-fa';
   import { faCancel } from '@fortawesome/free-solid-svg-icons';
   import { cls } from '../util';
@@ -14,6 +15,8 @@
   export let icon;
   let className = '';
   export { className as class };
+
+  const emit = createEventDispatcher();
 
   function determineIcon(givenIcon) {
     if (!givenIcon) {
@@ -36,7 +39,7 @@
   $: classes = cls({ icon: true, [className]: true, invalid: !completeIcon, hidden: !icon });
 </script>
 
-<div class={classes}>
+<div class={classes} on:click={() => emit('click')}>
   <Fa icon={completeIcon || faCancel} />
 </div>
 

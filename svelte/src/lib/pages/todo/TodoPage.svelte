@@ -1,6 +1,7 @@
 <script>
   import TodoCard from './TodoCard.svelte';
   import { todoStore } from '../../store';
+  import { cls } from '../../util';
 
   let todos = [];
   todoStore.subscribe(v => (todos = v));
@@ -32,7 +33,6 @@
   };
 
   const onTextChange = (index, title) => {
-    console.dir(title);
     const entries = todos.slice();
     const newEntry = { ...entries[index], title };
 
@@ -55,6 +55,7 @@
   <div class="cards">
     {#each todos as todo, index}
       <TodoCard
+        class={cls({ dim: !!todo.completed })}
         title={todo.title}
         completed={todo.completed}
         on:toggle={() => onToggleComplete(index)}

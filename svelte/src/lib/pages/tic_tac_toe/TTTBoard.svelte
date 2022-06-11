@@ -18,7 +18,6 @@
   function setCell(index) {
     const newPlayer = getNextPlayer(player);
     const newCells = cells.slice();
-    console.dir(index)
     newCells[index] = newPlayer;
 
     const state = { player: newPlayer, cells: newCells };

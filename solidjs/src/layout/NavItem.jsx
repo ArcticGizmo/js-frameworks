@@ -1,10 +1,10 @@
-import "./NavItem.css";
+import Icon from '../components/Icon';
+import './NavItem.css';
 
-export default (props) => {
+export default props => {
   return (
     <div className="nav-item">
-      {props.route.name}
-      {/* icon goes here */}
+      <Icon icon={props.route.icon} />
       <span className="nav-bar-tooltip">{props.route.name}</span>
     </div>
   );

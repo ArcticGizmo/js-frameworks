@@ -1,0 +1,16 @@
+.icon .fa {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+.icon.invalid {
+  color: red;
+}
+
+.icon.hidden {
+  opacity: 0;
+}

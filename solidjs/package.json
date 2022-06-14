@@ -14,7 +14,9 @@
     "vite-plugin-solid": "^2.2.6"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "solid-app-router": "^0.3.3",
+    "solid-fa": "^0.1.0",
     "solid-js": "^1.4.2"
   }
 }

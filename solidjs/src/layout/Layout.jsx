@@ -29,7 +29,7 @@ export default props => {
   return (
     <div className="layout">
       <div className="nav-bar">
-        {/* <img src="logo.svg" alt="Solidjs logo" /> */}
+        <img src="logo.svg" alt="Solidjs logo" />
         {links}
       </div>
 

@@ -5,11 +5,13 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "serve": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "preview": "vite preview"
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.17.12",
     "vite": "^2.9.9",
     "vite-plugin-solid": "^2.2.6"
   },

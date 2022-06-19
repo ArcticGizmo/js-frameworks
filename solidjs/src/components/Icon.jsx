@@ -34,12 +34,13 @@ export default function Icon(props) {
       icon: true,
       invalid: !computedIcon(),
       hidden: !props.icon,
+      [props.className]: true,
     };
   };
 
   return (
-    <div classList={classes()}>
-      <Fa icon={icon()} />
+    <div classList={classes()} onClick={props.onClick}>
+      <Fa icon={icon()} size="0.1x"/>
     </div>
   );
 }

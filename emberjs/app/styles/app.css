@@ -1,5 +1,5 @@
-@import './layout.css';
-@import './nav-item.css';
+@import './layout/layout.css';
+@import './layout/nav-item.css';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

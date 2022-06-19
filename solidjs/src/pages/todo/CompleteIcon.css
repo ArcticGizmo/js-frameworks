@@ -10,7 +10,9 @@
 }
 
 .complete-icon .icon {
-  margin-left: 0.5rem;
+  margin-left: -1px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .complete-icon.complete {

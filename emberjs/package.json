@@ -26,6 +26,8 @@
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.7.0",
+    "@fortawesome/ember-fontawesome": "^0.3.3",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "babel-eslint": "^10.1.0",
@@ -67,5 +69,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1"
   }
 }

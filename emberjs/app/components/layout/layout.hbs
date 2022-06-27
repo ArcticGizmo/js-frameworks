@@ -1,7 +1,6 @@
 <div class='layout'>
   <div class='nav-bar'>
     <img src='logo.png' />
-
     {{#each this.routes as |route|}}
       <LinkTo @route={{route.path}}>
         <Layout::NavItem @route={{route}} />

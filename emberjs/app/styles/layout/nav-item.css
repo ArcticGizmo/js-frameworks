@@ -10,17 +10,17 @@
   height: 3rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  color: #3fb27f;
+  color: #e05c43;
   background-color: #2f3136;
   border-radius: 2rem;
   transition: all 0.3s;
 }
 
-.router-link-active .nav-item .icon,
+.ember-view.active .nav-item .icon,
 .nav-item:hover .icon {
   color: white;
   border-radius: 0.75rem;
-  background-color: #3fb27f;
+  background-color: #e05c43;
 }
 
 .nav-item .nav-bar-tooltip {

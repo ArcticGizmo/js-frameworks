@@ -2,6 +2,10 @@
 @import './layout/layout.css';
 @import './layout/nav-item.css';
 
+@import './todo/complete-icon.css';
+@import './todo/todo-card.css';
+@import './todo/todo-page.css';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

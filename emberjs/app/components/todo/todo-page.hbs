@@ -3,8 +3,15 @@
     <button {{on 'click' this.onAdd}}>Create New</button>
   </div>
   <div class='cards'>
-    Here are some cards
+    {{#each this.todos as |todo index|}}
+      <Todo::TodoCard
+        class='example'
+        @title={{todo.title}}
+        @completed={{todo.completed}}
+        @onToggle={{this.onToggle}}
+        @onTextChange={{this.onTextChange}}
+        @onDelete={{this.onDelete}}
+      />
+    {{/each}}
   </div>
 </div>
-
-This is my todo page

@@ -3,7 +3,7 @@
     <button {{on 'click' this.onAdd}}>Create New</button>
   </div>
   <div class='cards'>
-    {{#each this.todos as |todo index|}}
+    {{#each this.store._todos as |todo index|}}
       <Todo::TodoCard
         class='example'
         @title={{todo.title}}

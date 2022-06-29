@@ -3,6 +3,15 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import clsx from 'clsx';
 
+const call = (key, ...args) => {
+  const cb = this[key];
+  if (!cb) {
+    return;
+  }
+
+  cb(args);
+};
+
 export default class TodoCard extends Component {
   @tracked title;
   @tracked completed;
@@ -17,16 +26,13 @@ export default class TodoCard extends Component {
 
   @action
   onToggleCompleted() {
-    const cb = this.onToggle;
-    if (!cb) {
-      return;
-    }
-
-    cb(!this.completed);
+    call('onToggle', !this.completed);
   }
 
   @action
   onTextChange() {
+    // call('onTextChange')
+    // const cb = this.onTextChange;
     console.dir('---- on text change');
   }
 

@@ -4,14 +4,25 @@
   </div>
   <div class='cards'>
     {{#each this.store._todos as |todo index|}}
-      <Todo::TodoCard
+      {{!-- <Todo::TodoCard
         class='example'
         @title={{todo.title}}
         @completed={{todo.completed}}
         @onToggle={{this.onToggle}}
-        @onTextChange={{this.onTextChange}}
+        @onTextChange={{fn this.onTextChange 1 2 3}}
+        {{action 'a'}}
         @onDelete={{this.onDelete}}
-      />
+        apple=7
+        @egg=9
+      /> --}}
+
+      {{!-- <Todo::TodoCard
+        @title={{todo.title}}
+        @completed={{todo.completed}}
+        @onToggle='{{this.a}}'
+        {{on 'bacon' this.b}}
+        {{action 'eggplant'}}
+      /> --}}
     {{/each}}
   </div>
 </div>

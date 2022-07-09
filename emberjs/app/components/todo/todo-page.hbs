@@ -9,8 +9,8 @@
         @title={{todo.title}}
         @completed={{todo.completed}}
         @onToggle={{fn this.onToggleComplete index}}
-        @onTextChange={{fn this.onTextChange 1 2 3}}
-        @onDelete={{this.onDelete}}
+        @onTextChange={{fn this.onTextChange index}}
+        @onDelete={{fn this.onDelete index}}
       />
     {{/each}}
   </div>

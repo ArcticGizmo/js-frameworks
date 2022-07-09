@@ -29,16 +29,13 @@ export default class TodoCard extends Component {
 
   @action
   onTextChange(index, title) {
-    console.dir(this.egg);
-    console.dir('---- apples');
-    return;
-    // const todos = this.store.todos.slice();
+    const todos = this.store.todos.slice();
 
-    // const todo = { ...todos[index], title };
+    const todo = { ...todos[index], title };
 
-    // todos[index] = todo;
+    todos[index] = todo;
 
-    // this.store.todos = todos;
+    this.store.todos = todos;
   }
 
   @action
@@ -47,15 +44,5 @@ export default class TodoCard extends Component {
 
     todos.splice(index, 1);
     this.store.todos = todos;
-  }
-
-  @action
-  a() {
-    console.dir('---- a');
-  }
-
-  @action
-  b() {
-    console.dir(' ----- b');
   }
 }

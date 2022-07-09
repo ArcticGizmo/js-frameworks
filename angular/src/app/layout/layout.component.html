@@ -1,6 +1,8 @@
 <div class="layout">
   <div class="nav-bar">
-    <img src="/assets/logo.png" />
+    <a class="docs" href="https://angular.io/" target="_blank">
+      <img src="/assets/logo.png" />
+    </a>
     <a
       *ngFor="let route of routes"
       [routerLink]="route.path"

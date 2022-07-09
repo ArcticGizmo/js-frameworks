@@ -29,7 +29,9 @@ export default props => {
   return (
     <div className="layout">
       <div className="nav-bar">
-        <img src="logo.svg" alt="Solidjs logo" />
+        <a class="docs" href="https://www.solidjs.com/" target="_blank">
+          <img src="logo.svg" alt="Solidjs logo" />
+        </a>
         {links}
       </div>
 

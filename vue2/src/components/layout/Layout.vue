@@ -1,7 +1,9 @@
 <template>
   <div class="layout">
     <div class="nav-bar">
-      <img src="logo.png" />
+      <a class="docs" href="https://v2.vuejs.org/" target="_blank">
+        <img src="logo.png" />
+      </a>
       <router-link v-for="route in routes" :key="route.path" :to="route.path">
         <NavItem :route="route" />
       </router-link>
@@ -51,7 +53,14 @@ body {
   z-index: 1000;
 }
 
+.layout .docs {
+  width: 4rem;
+  height: 4rem;
+}
+
 .layout .nav-bar img {
+  height: 100%;
+  width: 100%;
   border-bottom: 1px solid gray;
   padding: 0.5rem;
 }

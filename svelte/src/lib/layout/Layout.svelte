@@ -30,8 +30,10 @@
 </script>
 
 <div class="layout">
-  <nav class="eggplant">
-    <img src={logo} alt="Svelte Logo" />
+  <nav>
+    <a class="docs" href="https://svelte.dev/" target="_blank">
+      <img src={logo} alt="Svelte Logo" />
+    </a>
     {#each validRoutes as route}
       <a href={route.path} use:link use:active>
         <NavItem {route} />
@@ -62,7 +64,14 @@
     z-index: 1000;
   }
 
-  .layout nav img {
+  .layout .docs {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .layout .docs img {
+    height: 100%;
+    width: 100%;
     border-bottom: 1px solid gray;
     padding: 0.5rem;
   }

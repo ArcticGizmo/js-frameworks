@@ -37,7 +37,9 @@ class Layout extends React.Component {
       <div className="layout">
         <BrowserRouter>
           <nav className="nav-bar">
-            <img src="logo512.png" alt="React Logo" />
+            <a class="docs" href="https://reactjs.org/" target="_blank" rel="noreferrer">
+              <img src="logo512.png" alt="React Logo" />
+            </a>
             {navItems}
           </nav>
 

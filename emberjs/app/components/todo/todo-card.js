@@ -8,7 +8,6 @@ export default class TodoCard extends Component {
 
   @action
   onToggleCompleted() {
-    console.dir('---- this on toggle complete');
     this.$emit('onToggle', !this.args.completed);
   }
 

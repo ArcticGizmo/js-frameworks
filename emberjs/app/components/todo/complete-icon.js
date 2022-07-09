@@ -9,8 +9,8 @@ export default class CompleteIcon extends Component {
   get cls() {
     return clsx({
       'complete-icon': true,
-      complete: !!this.value,
-      incomplete: !this.value,
+      complete: !!this.args.value,
+      incomplete: !this.args.value,
     });
   }
 

@@ -20,7 +20,7 @@ export default class TodoCard extends Component {
     const todos = this.store.todos.slice();
     const todo = { ...todos[index] };
 
-    todo.completed = todo.completd ? null : Date.now();
+    todo.completed = todo.completed ? null : Date.now();
 
     todos[index] = todo;
 

@@ -16,6 +16,6 @@ export default class CompleteIcon extends Component {
 
   @action
   onToggle() {
-    console.dir('---- on toggle');
+    this.$emit('onToggle');
   }
 }

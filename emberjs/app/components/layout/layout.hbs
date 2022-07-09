@@ -1,6 +1,8 @@
 <div class='layout'>
   <div class='nav-bar'>
-    <img src='logo.png' />
+    <a class="docs" href='https://emberjs.com/' target='_blank'>
+      <img src='logo.png' />
+    </a>
     {{#each this.routes as |route|}}
       <LinkTo @route={{route.path}}>
         <Layout::NavItem @route={{route}} />

@@ -5,10 +5,10 @@ import config from 'emberjs/config/environment';
 
 import Component from '@glimmer/component';
 
-Component.prototype.$emit = function (eventName, ...args) {
+Component.prototype.$emit = function (eventName, args, event) {
   const cb = this.args[eventName];
   if (cb) {
-    cb(args);
+    cb(args, event);
   }
 };
 

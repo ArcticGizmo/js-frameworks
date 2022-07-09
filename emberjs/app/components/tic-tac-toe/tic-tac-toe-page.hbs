@@ -1,0 +1,22 @@
+<div class='tic-tac-toe-page'>
+  <div class='actions'>
+    <button {{on 'click' this.onReset}}>Reset</button>
+    {{#if this.showUndo}}
+      <button {{on 'click' this.onUndo}}>Undo</button>
+    {{/if}}
+  </div>
+  <div class='game-wrapper'>
+    <div class='game-area'>
+      <TicTacToe::TttBoard
+        @player={{this.active.player}}
+        @cells={{this.active.cells}}
+        @onChange={{this.onChange}}
+      />
+      {{#if this.winningPlayer}}
+        <div class='winner'>
+          <div class='label'>Player {{this.winningPlayer}} Wins!</div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

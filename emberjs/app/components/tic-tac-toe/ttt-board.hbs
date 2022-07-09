@@ -1,0 +1,5 @@
+<div class='ttt-board'>
+  {{#each @cells as |letter index|}}
+    <TicTacToe::TttCell @letter={{letter}} @onSelect={{fn this.onSelect index}} />
+  {{/each}}
+</div>

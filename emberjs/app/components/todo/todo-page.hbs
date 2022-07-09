@@ -1,0 +1,17 @@
+<div class='todo-page'>
+  <div class='add'>
+    <button {{on 'click' this.onAdd}}>Create New</button>
+  </div>
+  <div class='cards'>
+    {{#each this.store._todos as |todo index|}}
+      <Todo::TodoCard
+        class='example'
+        @title={{todo.title}}
+        @completed={{todo.completed}}
+        @onToggle={{fn this.onToggleComplete index}}
+        @onTextChange={{fn this.onTextChange index}}
+        @onDelete={{fn this.onDelete index}}
+      />
+    {{/each}}
+  </div>
+</div>

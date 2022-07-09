@@ -1,0 +1,5 @@
+<div class='todo-card'>
+  <Todo::CompleteIcon @value={{@completed}} @onToggle={{this.onToggleCompleted}} />
+  <input class='title' value={{@title}} disabled={{@completed}} {{on 'change' this.onTextChange}} />
+  <Icon @class='delete' @icon='xmark' @onClick={{this.onDelete}} />
+</div>

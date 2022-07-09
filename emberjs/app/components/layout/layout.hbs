@@ -1,0 +1,18 @@
+<div class='layout'>
+  <div class='nav-bar'>
+    <a class="docs" href='https://emberjs.com/' target='_blank'>
+      <img src='logo.png' />
+    </a>
+    {{#each this.routes as |route|}}
+      <LinkTo @route={{route.path}}>
+        <Layout::NavItem @route={{route}} />
+      </LinkTo>
+    {{/each}}
+
+  </div>
+  <div class='page-wrapper'>
+    <div class='page'>
+      {{outlet}}
+    </div>
+  </div>
+</div>
